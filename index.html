@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     background: white;
     padding: 30px;
@@ -30,12 +30,31 @@ h2 {
     margin-top: 30px;
 }
 
+p {
+    line-height: 1.55;
+    color: #4b5563;
+}
+
+ul {
+    line-height: 1.7;
+}
+
 .code {
     background: #eef2f7;
-    padding: 10px;
+    padding: 10px 12px;
     border-radius: 8px;
     font-family: monospace;
     display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.note {
+    background: #eff6ff;
+    border-left: 4px solid #007aff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-top: 14px;
 }
 
 .footer {
@@ -53,52 +72,95 @@ h2 {
 <h1>WebLaunch</h1>
 
 <p>
-WebLaunch is a focused web app launcher designed to open a single web application
-in a clean, controlled experience.
+    WebLaunch is a focused web app launcher designed to open a dedicated web application
+    in a clean, controlled app experience.
 </p>
 
 <h2>Features</h2>
 <ul>
-<li>Launch a dedicated web app</li>
-<li>Optional navigation controls</li>
-<li>Clear cache and browsing data</li>
-<li>Deep link configuration support</li>
+    <li>Launch a saved dedicated web app</li>
+    <li>Set a custom App Title and Base URL</li>
+    <li>Show or hide navigation controls</li>
+    <li>Clear cache, cookies, website data, and navigation history</li>
+    <li>Open temporary web app links without overwriting saved settings</li>
 </ul>
+
+<h2>Default Settings Mode</h2>
+<p>
+    When WebLaunch opens normally, it uses your saved settings:
+</p>
+
+<ul>
+    <li><strong>Base URL</strong> - The main web app WebLaunch opens.</li>
+    <li><strong>App Title</strong> - The title shown inside the app.</li>
+    <li><strong>Navigation Buttons</strong> - Optional Back, Forward, Refresh, and Home controls.</li>
+</ul>
+
+<p>
+    These settings are managed inside the app using the Settings screen.
+</p>
+
+<h2>Temporary Link Mode</h2>
+
+<p>
+    WebLaunch can also be opened using special links. These are useful for emails,
+    QR codes, documentation, intranet pages, or MDM deployments.
+</p>
+
+<p>
+    Temporary links open immediately and do <strong>not</strong> overwrite the saved Base URL,
+    App Title, or navigation setting.
+</p>
+
+<div class="code">
+    weblaunch://open?url=https%3A%2F%2Fportal.company.com
+</div>
+
+<h2>Temporary Link Options</h2>
+
+<p>
+    Temporary links may also include a temporary title and navigation setting:
+</p>
+
+<div class="code">
+    weblaunch://open?url=https%3A%2F%2Fportal.company.com&amp;name=HR%20Portal&amp;nav=false
+</div>
+
+<ul>
+    <li><strong>url</strong> - Required. The web application URL to open.</li>
+    <li><strong>name</strong> - Optional. Temporary title shown while the link is open.</li>
+    <li><strong>nav</strong> - Optional. Use <strong>true</strong> or <strong>false</strong> to show or hide navigation buttons.</li>
+</ul>
+
+<div class="note">
+    Closing and reopening WebLaunch normally returns to the saved Base URL.
+</div>
 
 <h2>Getting Started</h2>
 <p>
-Open Settings in the app and enter your web app URL:
+    Open Settings in the app and enter your saved web app URL:
 </p>
 
 <div class="code">
-https://portal.company.com
-</div>
-
-<h2>Deep Linking</h2>
-<p>
-WebLaunch supports configuration via link:
-</p>
-
-<div class="code">
-weblaunch://open?url=https%3A%2F%2Fportal.company.com
+    https://portal.company.com
 </div>
 
 <h2>Support</h2>
 <p>
-For help or questions:
+    For help or questions:
 </p>
 
 <p>
-Email: your@email.com
+    Email: your@email.com
 </p>
 
 <h2>Privacy</h2>
 <p>
-WebLaunch does not collect personal data. All browsing activity remains on your device.
+    WebLaunch does not collect personal data. Browsing activity remains on your device.
 </p>
 
 <div class="footer">
-WebLaunch
+    WebLaunch
 </div>
 
 </div>
